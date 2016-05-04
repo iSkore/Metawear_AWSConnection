@@ -1285,7 +1285,7 @@
         
         AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
         
-        NSDictionary *parameters = @{ @"orientation" : orientationSend };
+        NSDictionary *parameters = @{ @"method" : @"put", @"orientation" : orientationSend };
         
         [[lambdaInvoker invokeFunction:@"SCHOOL_HitDB" JSONObject:parameters] continueWithBlock:^id(AWSTask *task) {
             if (task.error) {
@@ -1303,7 +1303,6 @@
             }
             return nil;
         }];
-        //  AWS SEND HERE  - orientationSend
     }];
 }
 
